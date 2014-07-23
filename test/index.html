@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>UI-Router test</title>
+    <script src="/build.js" defer></script>
+    <style>
+      html {
+        font-family: Helvetica Neue, Helvetica, Sans-serif;
+        font-size: 62.5%;
+      }
+      body {
+        box-sizing: border-box;
+        color: rgb(140,140,140);
+        font-size: 1.6em;
+        line-height: 1.5em;
+        padding: 100px;
+      }
+      h1,
+      h2,
+      h3{
+        color: rgb(80,80,80);
+      }
+      a {
+        color: rgb(80,80,80);
+        display: inline-block;
+        padding: 2em;
+      }
+      code {
+        background-color: rgba(60,130,180,.2);
+        border-radius: 3px;
+        color: rgb(60,130,180);
+        padding: .2em .5em;
+      }
+    </style>
+  </head>
+  <body ng-app="uiRouterTest">
+
+    <h1 id="gotchas">Gotchas</h1>
+    <p>
+      So, to nest controllers you&#39;ll need to use a template
+      for each child. That child also has to have a <code>ui-view</code>
+      defined for the traversal to take place. It seems however that the
+      parent is only executed upon first-load, meaning you&#39;ll have to
+      re-execute manually if there are any lookups etc that needs to be done.
+    </p>
+
+    <code ui-view></code>
+    <br>
+    <a ui-sref="parent">Parent</a>
+    <a ui-sref="parent.child">Child</a>
+  </body>
+</html>
